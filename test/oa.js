@@ -13,15 +13,6 @@ describe('OpenAnything', function() {
     )
     expect(result).to.be.a(Date)
   })
-  it('should parse numbers', function() {
-    var result = oa.parse(
-      { _: 'oa:number'
-      , value: 0.5
-      }
-    )
-    expect(result).to.be.a('number')
-    expect(result).to.be.eql(0.5)
-  })
   it('should parse units', function() {
     var result = oa.parse(
       { _: 'oa:unit'
@@ -41,10 +32,7 @@ describe('OpenAnything', function() {
         , numerator: ['m']
         , denominator: ['s']
         }
-      , value: 
-        { _: 'oa:number'
-        , value: 0.5
-        }
+      , value: 0.5
       }
     )
     expect(result).to.be.a(oa.Measure)
@@ -54,9 +42,6 @@ describe('OpenAnything', function() {
   it('should export a function named stringify', function() {
     expect(oa.stringify).to.be.a(Function);
   })
-  it('should stringify numbers', function() {
-    expect(oa.stringify(5)).to.be('{"_":"oa:number","value":5}')
-  })
   it('should stringify dates', function() {
     var now = new Date()
     expect(oa.stringify(now)).to.be('{"_":"oa:date","value":"' + now.toJSON() + '"}')
@@ -65,6 +50,6 @@ describe('OpenAnything', function() {
     expect(oa.stringify(new oa.Unit('m', 's'))).to.be('{"_":"oa:unit","numerator":["m"],"denominator":["s"]}')
   })
   it('should stringify measures', function() {
-    expect(oa.stringify(new oa.Measure(5, new oa.Unit('m', 's')))).to.be('{"_":"oa:measure","value":{"_":"oa:number","value":5},"unit":{"_":"oa:unit","numerator":["m"],"denominator":["s"]}}')
+    expect(oa.stringify(new oa.Measure(5, new oa.Unit('m', 's')))).to.be('{"_":"oa:measure","value":5,"unit":{"_":"oa:unit","numerator":["m"],"denominator":["s"]}}')
   })
 })
