@@ -1,0 +1,12 @@
+{
+    "name": "oa"
+  , "description": "OpenAnything for node.js"
+  , "tags": ["open anything"]
+  , "homepage": "https://github.com/coreh/openanything"
+  , "version": "0.1.0"
+  , "engines": { "node": ">= 0.6.0" }
+  , "dependencies": {}
+  , "devDependencies":
+    { "expect.js": ">=0.1.2"
+    }
+}
