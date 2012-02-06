@@ -7,7 +7,7 @@ describe('OpenAnything', function() {
   })
   it('should parse dates', function() {
     var result = oa.parse(
-      { type: 'oa:date'
+      { _: 'oa:date'
       , value: '2012-02-05T21:43:51.173Z'
       }
     )
@@ -15,7 +15,7 @@ describe('OpenAnything', function() {
   })
   it('should parse numbers', function() {
     var result = oa.parse(
-      { type: 'oa:number'
+      { _: 'oa:number'
       , value: 0.5
       }
     )
@@ -24,7 +24,7 @@ describe('OpenAnything', function() {
   })
   it('should parse units', function() {
     var result = oa.parse(
-      { type: 'oa:unit'
+      { _: 'oa:unit'
       , numerator: ['m']
       , denominator: ['s']
       }
@@ -35,14 +35,14 @@ describe('OpenAnything', function() {
   })
   it('should parse measures', function() {
     var result = oa.parse(
-      { type: 'oa:measure'
+      { _: 'oa:measure'
       , unit:
-        { type: 'oa:unit'
+        { _: 'oa:unit'
         , numerator: ['m']
         , denominator: ['s']
         }
       , value: 
-        { type: 'oa:number'
+        { _: 'oa:number'
         , value: 0.5
         }
       }
@@ -51,17 +51,20 @@ describe('OpenAnything', function() {
     expect(result.value).to.be.a('number')
     expect(result.unit).to.be.a(oa.Unit)
   })
+  it('should export a function named stringify', function() {
+    expect(oa.stringify).to.be.a(Function);
+  })
   it('should stringify numbers', function() {
-    expect(oa.stringify(5)).to.be('{"type":"oa:number","value":5}')
+    expect(oa.stringify(5)).to.be('{"_":"oa:number","value":5}')
   })
   it('should stringify dates', function() {
     var now = new Date()
-    expect(oa.stringify(now)).to.be('{"type":"oa:date","value":"' + now.toJSON() + '"}')
+    expect(oa.stringify(now)).to.be('{"_":"oa:date","value":"' + now.toJSON() + '"}')
   })
   it('should stringify units', function() {
-    expect(oa.stringify(new oa.Unit('m', 's'))).to.be('{"type":"oa:unit","numerator":["m"],"denominator":["s"]}')
+    expect(oa.stringify(new oa.Unit('m', 's'))).to.be('{"_":"oa:unit","numerator":["m"],"denominator":["s"]}')
   })
   it('should stringify measures', function() {
-    expect(oa.stringify(new oa.Measure(5, new oa.Unit('m', 's')))).to.be('{"type":"oa:measure","value":{"type":"oa:number","value":5},"unit":{"type":"oa:unit","numerator":["m"],"denominator":["s"]}}')
+    expect(oa.stringify(new oa.Measure(5, new oa.Unit('m', 's')))).to.be('{"_":"oa:measure","value":{"_":"oa:number","value":5},"unit":{"_":"oa:unit","numerator":["m"],"denominator":["s"]}}')
   })
 })
