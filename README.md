@@ -17,8 +17,8 @@ data types:
 - objects
 
 JSON's success can be largely attributed to its simplicity and
-open-endedness (after all, these 6 data types ought to be enough to
-represent all the World's information).
+open-endedness. (After all, these six basic data types are enough to
+represent all the World's information)
 
 From the ability to encode just about anything you want in any way you
 want using JSON objects, arises an interesting problem: There is not
@@ -191,8 +191,7 @@ The WebD library provides an interface similar to the native JSON parser in Java
 
 | Function                           | Meaning
 |:-----------------------------------|:--------------------------------------------
-| `webd.stringify(obj, indent)`      | Generate a WebD representation of the object in string format
-|                                    | Optionally indenting it with the character provided.
+| `webd.stringify(obj, indent)`      | Generate a WebD representation of the object in string format, optionally indenting it with the character provided.
 | `webd.parse(str)`                  | Parse this WebD representation in string format and return the result.
 
 It also provides functions to simply encode and decode objects to and
