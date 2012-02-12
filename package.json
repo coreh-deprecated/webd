@@ -1,10 +1,11 @@
 {
-    "name": "oa"
-  , "description": "OpenAnything for node.js"
-  , "tags": ["open anything"]
-  , "homepage": "https://github.com/coreh/openanything"
+    "name": "webd"
+  , "description": "WebD is a convention for representing a wide variety of datatypes in JSON."
+  , "tags": ["WebD", "data interchange"]
+  , "homepage": "https://github.com/coreh/webd"
   , "version": "0.1.0"
   , "engines": { "node": ">= 0.6.0" }
+  , "main": "./lib/webd.js"
   , "dependencies": {}
   , "devDependencies":
     { "expect.js": ">=0.1.2"
