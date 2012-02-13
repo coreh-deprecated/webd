@@ -107,6 +107,8 @@ superset of it. This means two things:
 - WebD representations can translate into data types that are not "possible" 
   to represent in JSON "natively".
 
+![Syntax: slightly more restrict, but fully compatible with existing JSON parsers - Semantics: represents natively a wide variety of data types, extensible](https://raw.github.com/Coreh/webd/master/docs/venn.svg)
+
 The latter is possible because we assign a special meaning to the `"_"` property
 of JSON objects: In WebD this property is used to state a data type.
 
